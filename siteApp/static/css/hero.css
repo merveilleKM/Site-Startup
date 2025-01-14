@@ -1,0 +1,74 @@
+/* Section Hero */
+#hero {
+    position: relative;
+    background-image: url("../img/noirs3.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    height: 100vh; /* Full viewport height */
+    color: white;
+    overflow: hidden;
+}
+
+/* Overlay for better contrast */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(92, 82, 82, 0.6);
+    /* background: rgba(0, 0, 0, 0.6); Dark semi-transparent layer */
+    z-index: 1;
+}
+
+/* Content inside Hero */
+#hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+#hero .text-highlight {
+    color: var(--secondary); /* Rose */
+}
+
+#hero p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+#hero button {
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#hero button:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.btn-primary {
+    background-color: var(--secondary); /* Rose vif */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary); /* Rose foncé */
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: var(--secondary); /* Rose vif */
+}

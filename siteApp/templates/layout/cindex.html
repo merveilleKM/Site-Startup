@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{% static 'img/user.jpg' %} " type="">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %} " rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %} " rel="stylesheet">
+
+     <!-- Customized Bootstrap Stylesheet -->
+     <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+     <link href="{% static 'css/font-awesome.min.css' %} ">
+     <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
+     <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+     <link rel="stylesheet" href= "{% static 'css/hero.css' %}">
+    <title>True Site Technology</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="m-0">TrueSite Technology</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="" class="nav-item nav-link active">Accueil</a>
+                <a href="apropos" class="nav-item nav-link">A propos</a>
+                <a href="service" class="nav-item nav-link">Services</a>
+                <div class="nav-item dropdown">
+                    <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Postuler</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="stage" class="dropdown-item">Stage</a>
+                        <a href="formation" class="dropdown-item">Formation</a>
+                    </div>
+                </div>
+                <a href="contact" class="nav-item nav-link">Contact</a>
+            </div>
+                
+                <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <i class="fa fa-search"></i>
+                </butaton>
+        </div>
+    </nav>
+
+    {% block cindex %}
+    {% endblock%}
+
+    <footer class="bg-dark text-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- About the Company -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-uppercase mb-3">À propos de SmartTech</h5>
+                    <p>
+                        SmartTech est une startup innovante spécialisée dans les solutions numériques modernes pour
+                        les entreprises. Notre mission est de transformer vos idées en réalité grâce à des outils
+                        technologiques avancés et un support client de qualité.
+                    </p>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-uppercase mb-3">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact Information -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase mb-3">Contact</h5>
+                    <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>123, Avenue de la Startup, Douala</p>
+                    <p class="mb-1"><i class="fas fa-phone-alt me-2"></i>+237 678 123 456</p>
+                    <p class="mb-1"><i class="fas fa-envelope me-2"></i>contact@smarttech.com</p>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase mb-3">Suivez-nous</h5>
+                    <div>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Footer Bottom -->
+            <div class="text-center mt-4">
+                <p class="mb-0">&copy; 2025 SmartTech. Tous droits réservés.</p>
+                <p><a href="terms.html">Mentions légales</a> | <a href="privacy.html">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+  <script src= "{% static 'lib/counterup/counterup.min.js' %}"></script>
+  <script src= "{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+  <!-- Template Javascript -->
+  <script src= "{% static 'js/main.js' %}"></script>
+    
+    <script src= "{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

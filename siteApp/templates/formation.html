@@ -1,0 +1,65 @@
+{% extends "layout/cother.html" %}
+{% load static %}
+
+{% block cother %}
+
+ <!-- Hero Section -->
+ <section class="bg-light p-5 my-5">
+    <div class="container text-center">
+        <h1>Postuler pour un Stage</h1>
+        <p>Rejoignez notre équipe pour des expériences enrichissantes.</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container py-5">
+    <div class="row">
+        <!-- Opportunités de Stage -->
+        <div class="col-lg-6 mb-4">
+            <h2>Formations Proposées</h2>
+            <p>Nos programmes couvrent les domaines suivants :</p>
+            <ul>
+                <li>Programmation et Développement</li>
+                <li>Data Science et Intelligence Artificielle</li>
+                <li>Entrepreneuriat et Gestion</li>
+            </ul>
+             <p>Contactez-nous pour plus d'informations via la section <a href="contact">Contact</a>.</p>
+        </div>
+
+        <!-- Formulaire de Postulation -->
+        <div class="col-lg-6">
+            <h2>Postuler Maintenant</h2>
+            <form action="submit_form.php" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom et Prénom</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom complet" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Adresse Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Numéro de Téléphone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Votre numéro de téléphone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cv" class="form-label">CV</label>
+                    <input type="file" class="form-control" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cv" class="form-label">Certificat de Scolarite</label>
+                    <input type="file" class="form-control" id="certificat" name="certificat" accept=".pdf,.doc,.docx" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Parlez-nous de vous"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    {% endblock%}
+
+   
