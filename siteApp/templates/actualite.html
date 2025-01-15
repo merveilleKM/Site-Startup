@@ -1,0 +1,36 @@
+{% extends "layout/cother.html" %}
+{% load static %}
+
+{% block cother %}
+
+<!-- Hero Section -->
+<section class="bg-light p-5 my-5">
+    <div class="container text-center">
+        <h1>Actualités</h1>
+        <p>Découvrez les dernières nouvelles et mises à jour de TrueSite Technology.</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container py-5">
+    <div class="row">
+        {% for actualite in actualites %}
+        <div class="col-md-6 mb-4">
+            <div class="card shadow">
+                <img src="{{ actualite.image.url }}" class="card-img-top" alt="{{ actualite.titre }}" style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ actualite.titre }}</h5>
+                    <p class="card-text">
+                        {{ actualite.description|truncatewords:25 }}
+                    </p>
+                    <a href="{% url 'actualite_detail' actualite.id %}" class="btn btn-primary">Lire plus</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">Aucune actualité pour le moment.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

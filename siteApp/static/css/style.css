@@ -1,4 +1,3 @@
-/********** Template CSS **********/
 :root {
     --primary: rgb(26, 6, 116);
     --secondary: rgb(243, 141, 212);
@@ -215,43 +214,6 @@ h6,
     }
 }
 
-/*** Carousel ***/
-.carousel-caption {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(104, 53, 78, 0.8); /* Mélange de noir et rose avec 80 % d'opacité */
-    z-index: 1;
-}
-
-
-
-
-@media (max-width: 576px) {
-    .carousel-caption h5 {
-        font-size: 14px;
-        font-weight: 500 !important;
-    }
-
-    .carousel-caption h1 {
-        font-size: 30px;
-        font-weight: 600 !important;
-    }
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 10%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    width: 3rem;
-    height: 3rem;
-}
-
-
 /*** Section Title ***/
 .section-title::before {
     content: "";
@@ -259,7 +221,7 @@ h6,
     height: 5px;
     left: 0;
     bottom: 0;
-    background: var(--primary);
+    background: #1a0675;;
     border-radius: 2px;
     align-self: center;
     align-items: center;
@@ -281,7 +243,8 @@ h6,
     width: 6px;
     height: 5px;
     bottom: 0px;
-    background: #FFFFFF;
+    background: #1a0675;;
+    
     -webkit-animation: section-title-run 5s infinite linear;
     animation: section-title-run 5s infinite linear;
 }
@@ -311,7 +274,7 @@ h6,
 
 @-webkit-keyframes section-title-run-sm {
     0% {left: 0; } 50% { left : 85px; } 100% { left: 0; }
-}
+} 
 
 
 /*** Service ***/

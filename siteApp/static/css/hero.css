@@ -17,8 +17,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(92, 82, 82, 0.6);
-    /* background: rgba(0, 0, 0, 0.6); Dark semi-transparent layer */
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent layer */
     z-index: 1;
 }
 
@@ -35,7 +34,7 @@
 }
 
 #hero .text-highlight {
-    color: var(--secondary); /* Rose */
+    color: rgb(243, 141, 212); /* Rose */
 }
 
 #hero p {
@@ -55,12 +54,12 @@
 }
 
 .btn-primary {
-    background-color: var(--secondary); /* Rose vif */
+    background-color: rgb(243, 141, 212); /* Rose vif */
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary); /* Rose foncé */
+    background-color: rgb(243, 141, 212); /* Rose foncé */
 }
 
 .btn-outline-light {
@@ -70,5 +69,5 @@
 
 .btn-outline-light:hover {
     background-color: white;
-    color: var(--secondary); /* Rose vif */
+    color: rgb(243, 141, 212); /* Rose vif */
 }

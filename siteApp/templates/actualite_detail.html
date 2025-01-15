@@ -1,0 +1,25 @@
+{% extends "layout/cother.html" %}
+{% load static %}
+
+{% block cother %}
+
+<section class="bg-light p-5 my-5">
+    <div class="container text-center">
+        <h1>{{ actualite.titre }}</h1>
+        <p class="text-muted">{{ actualite.date_publication|date:"d M Y" }}</p>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ actualite.image.url }}" alt="{{ actualite.titre }}" class="img-fluid mb-4" style="width: 500px; height: 500px;">
+        </div>
+        <div class="col-md-6">
+            <p>{{ actualite.description }}</p>
+        </div>
+    </div>
+    <a href="{% url 'liste_actualites' %}" class="btn btn-primary mt-3">Retour aux actualités</a>
+</div>
+
+{% endblock %}

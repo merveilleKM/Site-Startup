@@ -16,6 +16,9 @@
     <div class="row">
         <!-- Opportunités de Stage -->
         <div class="col-lg-6 mb-4">
+            <div>
+                <img src="{% static 'img/stage.png' %}" alt="" class="img-fluid" style="width: 400px; height: 400px;">
+            </div>
             <h2>Opportunités de Stage</h2>
             <p>Nous offrons des stages dans les domaines suivants :</p>
             <ul>
@@ -29,7 +32,8 @@
         <!-- Formulaire de Postulation -->
         <div class="col-lg-6">
             <h2>Postuler Maintenant</h2>
-            <form action="submit_form.php" method="POST">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="mb-3">
                     <label for="name" class="form-label">Nom et Prénom</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom complet" required>
@@ -47,7 +51,7 @@
                     <input type="file" class="form-control" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
                 </div>
                 <div class="mb-3">
-                    <label for="cv" class="form-label">Certificat de Scolarite</label>
+                    <label for="certificat" class="form-label">Certificat de Scolarité</label>
                     <input type="file" class="form-control" id="certificat" name="certificat" accept=".pdf,.doc,.docx" required>
                 </div>
                 <div class="mb-3">

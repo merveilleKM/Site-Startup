@@ -19,17 +19,13 @@ a {
     text-decoration: none;
     color: inherit;
 }
-/* .btn-primary {
-    background-color: #ff007f; /* Rose vif 
-    border: none;
-} */
 .btn-primary {
-    background-color: var(--secondary); /* Rose vif */
+    background-color: rgb(243, 141, 212); 
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary); /* Rose foncé */
+    background-color: rgb(243, 141, 212); 
 }
 
 .btn-outline-light {
@@ -39,7 +35,7 @@ a {
 
 .btn-outline-light:hover {
     background-color: white;
-    color: var(--secondary); /* Rose vif */
+    color: rgb(243, 141, 212);
 }
 
 /* Navbar Styles */
@@ -48,7 +44,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(0deg, #4A90E2, #FF5C93);
+    background: linear-gradient(90deg, #4A90E2, #FF5C93);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -98,67 +94,6 @@ a {
 }
 
 
-
-/*** Section Title ***/
-.section-title::before {
-    position: absolute;
-    content: "";
-    width: 150px;
-    height: 5px;
-    left: 0;
-    bottom: 0;
-    background: var(--primary);
-    border-radius: 2px;
-}
-
-.section-title.text-center::before {
-    left: 50%;
-    margin-left: -75px;
-}
-
-.section-title.section-title-sm::before {
-    width: 90px;
-    height: 3px;
-}
-
-.section-title::after {
-    position: absolute;
-    content: "";
-    width: 6px;
-    height: 5px;
-    bottom: 0px;
-    background: #FFFFFF;
-    -webkit-animation: section-title-run 5s infinite linear;
-    animation: section-title-run 5s infinite linear;
-}
-
-.section-title.section-title-sm::after {
-    width: 4px;
-    height: 3px;
-}
-
-.section-title.text-center::after {
-    -webkit-animation: section-title-run-center 5s infinite linear;
-    animation: section-title-run-center 5s infinite linear;
-}
-
-.section-title.section-title-sm::after {
-    -webkit-animation: section-title-run-sm 5s infinite linear;
-    animation: section-title-run-sm 5s infinite linear;
-}
-
-@-webkit-keyframes section-title-run {
-    0% {left: 0; } 50% { left : 145px; } 100% { left: 0; }
-}
-
-@-webkit-keyframes section-title-run-center {
-    0% { left: 50%; margin-left: -75px; } 50% { left : 50%; margin-left: 45px; } 100% { left: 50%; margin-left: -75px; }
-}
-
-@-webkit-keyframes section-title-run-sm {
-    0% {left: 0; } 50% { left : 85px; } 100% { left: 0; }
-}
-
 /* About Section */
 #about {
     padding: 50px 20px;
@@ -179,9 +114,9 @@ a {
 }
 
 
-/* Section Formulaire */
-.callback-form {
-    background: linear-gradient(135deg, #005f99, #ff6699); /* Dégradé bleu foncé et rose clair */
+   /* Section Formulaire */
+   .callback-form {
+    background: linear-gradient(135deg, #00274d, rgb(243, 141, 212)); /* Dégradé bleu et rose */
     color: white;
     padding: 50px 20px;
     border-radius: 10px;
@@ -196,16 +131,15 @@ a {
 }
 
 .callback-form .section-heading em {
-    color: #ff6699; /* Accent rose clair */
+    color: rgb(243, 141, 212); /* Accent rose */
 }
 
 .callback-form .section-heading span {
     display: block;
     font-size: 1rem;
-    color: #f0f0f0;
+    color: #e0e0e0;
     margin-bottom: 30px;
 }
-
 
 /* Formulaire */
 .contact-form input, 
@@ -223,7 +157,7 @@ a {
 
 .contact-form input:focus, 
 .contact-form textarea:focus {
-    border-color: var(--secondary); /* Accent rose */
+    border-color: rgb(243, 141, 212); /* Accent rose */
     background: rgba(255, 255, 255, 0.4);
     outline: none;
     color: white;
@@ -236,7 +170,7 @@ a {
 /* Bouton */
 .contact-form button {
     display: inline-block;
-    background: var(--secondary); /* Rose vif */
+    background: rgb(243, 141, 212); /* Rose vif */
     color: white;
     padding: 15px 30px;
     font-size: 1.1rem;
@@ -248,7 +182,7 @@ a {
 }
 
 .contact-form button:hover {
-    background: var(--secondary); /* Rose foncé */
+    background: rgb(243, 141, 212); /* Rose foncé */
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(255, 0, 127, 0.6);
 }
@@ -283,7 +217,7 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--secondary);
+    color: rgb(243, 141, 212);
 }
 
 /* Services Section */
