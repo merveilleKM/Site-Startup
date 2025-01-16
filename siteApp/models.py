@@ -3,6 +3,7 @@ from django.db import models
 class ContactMessage(models.Model):
     name = models.CharField(max_length=255, verbose_name="Nom complet")
     email = models.EmailField(verbose_name="Adresse e-mail")
+    phone = models.CharField(max_length=15, verbose_name="Numéro de Téléphone", default="null")
     subject = models.CharField(max_length=255, verbose_name="Objet")
     message = models.TextField(verbose_name="Message")
     sent_at = models.DateTimeField(auto_now_add=True, verbose_name="Date d'envoi")

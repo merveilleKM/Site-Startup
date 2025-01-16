@@ -13,37 +13,61 @@ def apropos(request):
 def service(request):
     return render(request, 'service.html')
 
+from django.shortcuts import render
+from django.core.mail import send_mail
+from .models import ContactMessage
+from django.contrib import messages
+
 def contact(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
+        phone = request.POST.get('phone')
+        message_content = request.POST.get('message')
 
-        if name and email and subject and message:
-            # Enregistrer les données dans la base
-            ContactMessage.objects.create(name=name, email=email, subject=subject, message=message)
-            messages.success(request, "Votre message a été envoyé avec succès.")
+        # Enregistrer dans la base de données
+        contact_message = ContactMessage.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+            message=message_content
+        )
+        contact_message.save()
 
-            # Envoyer un email de notification
+        # Envoyer un email
+        try:
+            # Envoyer un email de confirmation à l'utilisateur
             send_mail(
-                subject='Votre message a été reçu !',
+                subject="Confirmation de réception de votre message",
                 message=f"Bonjour {name},\n\n"
-                    f"Merci de nous avoir contactés ! Votre message a bien été reçu par TrueSite Technologie. "
-                    f"Nous vous répondrons dès que possible.\n\n"
-                    f"Voici un résumé de votre message :\n\n"
-                    f"Objet : {subject}\n"
-                    f"Message : {message}\n\n"
-                    f"Cordialement,\nL'équipe TrueSite Technologie.",
-                from_email=None,  # Utilise DEFAULT_FROM_EMAIL
+                        "Merci de nous avoir contactés ! Nous avons bien reçu votre message et vous "
+                        "répondrons dans les plus brefs délais.\n\n"
+                        "Cordialement,\nL'équipe TrueSite Technology",
+                from_email=None,  # Utilise DEFAULT_FROM_EMAIL dans settings.py
                 recipient_list=[email],
+                fail_silently=False,
             )
 
-            return JsonResponse({'success': True, 'message': 'Message envoyé avec succès !'})
-        else:
-            messages.error(request, "Veuillez remplir tous les champs.")
-        
-        return redirect('contact')  # Redirige vers la même page ou une autre
+            # Afficher un message de succès
+            messages.success(request, "Votre message a été envoyé avec succès. Un email de confirmation vous a été envoyé.")
+        except Exception as e:
+            # Afficher un message d'erreur si l'envoi d'email échoue
+            messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
+
+        # return render(request, 'contact.html')
+        #     send_mail(
+        #         subject="Votre message a été reçu !",
+        #         message=f"Merci pour votre message, nous vous répondrons dans les plus brefs délais.\n \n \n"
+        #         f"Contenu du message : {message_content}",
+        #         from_email=None,  # Utilise DEFAULT_FROM_EMAIL
+        #         recipient_list=[email],
+        #         fail_silently=False,
+        #     )
+        #     messages.success(request, "Votre message a été envoyé et enregistré avec succès.")
+        # except Exception as e:
+        #     messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
+
+        return render(request, 'contact.html')
 
     return render(request, 'contact.html')
 

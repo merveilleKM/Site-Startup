@@ -3,6 +3,44 @@
 
 {% block cother %}
 
+<style>
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee {
+    display: inline-flex;
+    animation: scroll 15s linear infinite;
+    white-space: nowrap;
+    align-items: center;
+    gap: 30px; /* Espacement entre les items */
+}
+
+.marquee-item {
+    text-align: center;
+    width: auto;
+}
+
+.marquee-text {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #333;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+</style>
+
 <section id="sub-hero" class="d-flex align-items-center text-center">
     <div class="overlay"></div>
     <div class="container position-relative">
@@ -58,11 +96,70 @@
             <h5 class="fw-bold text-primary text-uppercase">Membres de l'Équipe</h5>
             <h1 class="mb-0">Des Professionnels Prêts à Soutenir Votre Entreprise</h1>
         </div>
-        <div class="row g-5">
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+
+        <div class="marquee-container">
+            <div class="marquee">
+                <div class="marquee-item">
+                    <img src="{% static 'img/and.jpg' %}" alt="" style="height: 210px; width: auto;">
+                    <p class="marquee-text">
+                        <strong>Jean Dupont</strong><br>
+                        Chef de Projet
+                    </p>
+                </div>
+                <div class="marquee-item">
+                    <img src="{% static 'img/em.jpg' %}" alt="" style="height: 210px; width: auto;">
+                    <p class="marquee-text">
+                        <strong>Emma Durand</strong><br>
+                        Développeuse Web
+                    </p>
+                </div>
+                <div class="marquee-item">
+                    <img src="{% static 'img/fab.jpg' %}" alt="" style="height: 210px; width: auto;">
+                    <p class="marquee-text">
+                        <strong>Fabien Martin</strong><br>
+                        Designer Graphique
+                    </p>
+                </div>
+                <div class="marquee-item">
+                    <img src="{% static 'img/tavel.jpg' %}" alt="" style="height: 210px; width: 180px;">
+                    <p class="marquee-text">
+                        <strong>Chloé Tavernier</strong><br>
+                        Spécialiste Marketing
+                    </p>
+                </div>
+                <div class="marquee-item">
+                    <img src="{% static 'img/fran.jpg' %}" alt="" style="height: 210px; width: auto;">
+                    <p class="marquee-text">
+                        <strong>François Leroy</strong><br>
+                        Analyste Financier
+                    </p>
+                </div>
+                <div class="marquee-item">
+                    <img src="{% static 'img/fran.jpg' %}" alt="" style="height: 210px; width: auto;">
+                    <p class="marquee-text">
+                        <strong>Élise Blanc</strong><br>
+                        Responsable RH
+                    </p>
+                </div>
+                <div class="marquee-item">
+                    <img src="{% static 'img/fran.jpg' %}" alt="" style="height: 210px; width: auto;">
+                    <p class="marquee-text">
+                        <strong>Paul Moreau</strong><br>
+                        Consultant IT
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+
+        <!-- <marquee behavior="" direction="">
+            <div class="col wow slideInUp" data-wow-delay="0s">
                 <div class="team-item bg-light rounded overflow-hidden">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{% static 'img/team-1.jpg' %}" alt="">
+                        <img class="img-fluid w-100" src="{% static 'img/and.jpg' %}" alt="">
                         <div class="team-social">
                             <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -76,10 +173,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
+            <div class="col wow slideInUp" data-wow-delay="0s">
                 <div class="team-item bg-light rounded overflow-hidden">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{% static 'img/team-2.jpg' %}" alt="">
+                        <img class="img-fluid w-100" src="{% static 'img/em.jpg' %}" alt="">
                         <div class="team-social">
                             <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -88,15 +185,15 @@
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <h4 class="text-primary">Marie Curie</h4>
-                        <p class="text-uppercase m-0">Responsable Marketing</p>
+                        <h4 class="text-primary">Jean Dupont</h4>
+                        <p class="text-uppercase m-0">Chef de Projet</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
+            <div class="col wow slideInUp" data-wow-delay="0s">
                 <div class="team-item bg-light rounded overflow-hidden">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{% static 'img/team-3.jpg' %}" alt="">
+                        <img class="img-fluid w-100" src="{% static 'img/fab.jpg' %}" alt="" style="height: 210px;">
                         <div class="team-social">
                             <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                             <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -105,12 +202,158 @@
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <h4 class="text-primary">Luc Durand</h4>
-                        <p class="text-uppercase m-0">Développeur Web</p>
+                        <h4 class="text-primary">Jean Dupont</h4>
+                        <p class="text-uppercase m-0">Chef de Projet</p>
                     </div>
                 </div>
+            </div>
+            <div class="col wow slideInUp" data-wow-delay="0s">
+                <div class="team-item bg-light rounded overflow-hidden">
+                    <div class="team-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="{% static 'img/tavel.jpg' %}" alt="" style="height: 210px;">
+                        <div class="team-social">
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <h4 class="text-primary">Jean Dupont</h4>
+                        <p class="text-uppercase m-0">Chef de Projet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col wow slideInUp" data-wow-delay="0s">
+                <div class="team-item bg-light rounded overflow-hidden">
+                    <div class="team-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="{% static 'img/fran.jpg' %}" alt="" style="height: 210px;">
+                        <div class="team-social">
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <h4 class="text-primary">Jean Dupont</h4>
+                        <p class="text-uppercase m-0">Chef de Projet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col wow slideInUp" data-wow-delay="0s">
+                <div class="team-item bg-light rounded overflow-hidden">
+                    <div class="team-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="{% static 'img/fran.jpg' %}" alt="" style="height: 210px;">
+                        <div class="team-social">
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <h4 class="text-primary">Jean Dupont</h4>
+                        <p class="text-uppercase m-0">Chef de Projet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col wow slideInUp" data-wow-delay="0s">
+                <div class="team-item bg-light rounded overflow-hidden">
+                    <div class="team-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="{% static 'img/fran.jpg' %}" alt="" style="height: 210px;">
+                        <div class="team-social">
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <h4 class="text-primary">Jean Dupont</h4>
+                        <p class="text-uppercase m-0">Chef de Projet</p>
+                    </div>
+                </div>
+            </div>
+        </marquee> -->
+        <div class="scroll-container">
+            <div class="row scroll-content g-5">
+                <!-- Image 1 -->
+                
             </div>
         </div>
+        
+            <!-- <div class="row g-5">
+                <div class="col-lg-3 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/and.jpg' %}" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 class="text-primary">Jean Dupont</h4>
+                            <p class="text-uppercase m-0">Chef de Projet</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 wow slideInUp" data-wow-delay="0.6s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/em.jpg' %}" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 class="text-primary">Marie Curie</h4>
+                            <p class="text-uppercase m-0">Responsable Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/fab.jpg' %}" alt="" style="height: 150%;">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 class="text-primary">Luc Durand</h4>
+                            <p class="text-uppercase m-0">Développeur Web</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/tavel.jpg' %}" alt="" style="height: 300px;">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 class="text-primary">Luc Durand</h4>
+                            <p class="text-uppercase m-0">Développeur Web</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        
     </div>
 </div>
 <!-- Équipe Fin -->
