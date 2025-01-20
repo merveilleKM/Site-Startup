@@ -4,41 +4,45 @@
 {% block cother %}
 
 <style>
-.marquee-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.marquee {
-    display: inline-flex;
-    animation: scroll 15s linear infinite;
-    white-space: nowrap;
-    align-items: center;
-    gap: 30px; /* Espacement entre les items */
-}
-
-.marquee-item {
-    text-align: center;
-    width: auto;
-}
-
-.marquee-text {
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.2;
-    color: #333;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(100%);
+    .team-scroll-container {
+        overflow-x: hidden;
+        position: relative;
     }
-    100% {
-        transform: translateX(-100%);
+    
+    .team-scroll {
+        display: flex;
+        gap: 30px;
+        animation: scroll 15s linear infinite;
     }
-}
-
+    
+    .team-item {
+        text-align: center;
+        flex: 0 0 auto;
+        width: 200px;
+    }
+    
+    .team-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .team-item p {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+    
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+    
 </style>
 
 <section id="sub-hero" class="d-flex align-items-center text-center">
@@ -81,7 +85,8 @@
             </div>
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="{% static 'img/about.jpg' %}" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" 
+                        src="{% static 'img/noirs4.jpeg' %}" style="object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -90,7 +95,7 @@
 <!-- À propos Fin -->
 
 <!-- Équipe Début -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+{% comment %} <div class="container-fluid py-5 wow fadeInUp">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">Membres de l'Équipe</h5>
@@ -355,8 +360,64 @@
             </div> -->
         
     </div>
+</div> {% endcomment %}
+
+<div class="container-fluid py-5 wow fadeInUp">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+            <h5 class="fw-bold text-primary text-uppercase">Membres de l'Équipe</h5>
+            <h1 class="mb-0">Des Professionnels Prêts à Soutenir Votre Entreprise</h1>
+        </div>
+
+        <div class="team-scroll-container">
+            <div class="team-scroll">
+                <div class="team-item">
+                    <img src="{% static 'img/and.jpg' %}" alt="Jean Dupont">
+                    <p><strong>Jean Dupont</strong><br>Chef de Projet</p>
+                </div>
+                <div class="team-item">
+                    <img src="{% static 'img/em.jpg' %}" alt="Emma Durand">
+                    <p><strong>Emma Durand</strong><br>Développeuse Web</p>
+                </div>
+                <div class="team-item">
+                    <img src="{% static 'img/fab.jpg' %}" alt="Fabien Martin">
+                    <p><strong>Fabien Martin</strong><br>Designer Graphique</p>
+                </div>
+                <div class="team-item">
+                    <img src="{% static 'img/tavel.jpg' %}" alt="Chloé Tavernier" style="height: 250px;">
+                    <p><strong>Chloé Tavernier</strong><br>Spécialiste Marketing</p>
+                </div>
+                <div class="team-item">
+                    <img src="{% static 'img/fran.jpg' %}" alt="François Leroy">
+                    <p><strong>François Leroy</strong><br>Analyste Financier</p>
+                </div>
+                <div class="team-item">
+                    <img src="{% static 'img/fran.jpg' %}" alt="Élise Blanc">
+                    <p><strong>Élise Blanc</strong><br>Responsable RH</p>
+                </div>
+                <div class="team-item">
+                    <img src="{% static 'img/fran.jpg' %}" alt="Paul Moreau">
+                    <p><strong>Paul Moreau</strong><br>Consultant IT</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Équipe Fin -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollContainer = document.querySelector('.team-scroll');
+        const items = document.querySelectorAll('.team-item');
+    
+        // Duplique les éléments pour assurer un scroll fluide
+        items.forEach((item) => {
+            const clone = item.cloneNode(true);
+            scrollContainer.appendChild(clone);
+        });
+    });
+    
+</script>
 
     {% endblock%}
 

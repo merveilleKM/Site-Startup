@@ -30,7 +30,36 @@
     <title>True Site Technology</title>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="/" class="navbar-brand p-0">
+            <h1 class="m-0">TrueSite Technology</h1>
+        </a>
+        <!-- Navbar Toggler (fa-bars) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="/" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Accueil</a>
+                <a href="/apropos" class="nav-item nav-link {% if request.path == '/apropos' %}active{% endif %}">À propos</a>
+                <a href="/service" class="nav-item nav-link {% if request.path == '/service' %}active{% endif %}">Services</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle {% if request.path == '/stage' %}active{% endif %} {% if request.path == '/formation' %}active{% endif %}" 
+                    data-bs-toggle="dropdown">Postuler</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="/stage" class="dropdown-item {% if request.path == '/stage' %}active{% endif %}">Stage</a>
+                        <a href="/formation" class="dropdown-item {% if request.path == '/formation' %}active{% endif %}">Formation</a>
+                    </div>
+                </div>
+                <a href="/actualite" class="nav-item nav-link {% if request.path == '/actualite' %}active{% endif %}">Actualité</a>
+                <a href="/contact" class="nav-item nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    {% comment %} <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
         <a href="/" class="navbar-brand p-0">
             <h1 class="m-0">TrueSite Technology</h1>
         </a>
@@ -55,7 +84,7 @@
                 <a href="contact" class="nav-item nav-link">Contact</a>
             </div>
         </div>
-    </nav>
+    </nav> {% endcomment %}
     
 
     {% block cindex %}
@@ -114,10 +143,12 @@
     </footer>
     
     <!-- Inclusion des scripts nécessaires pour Bootstrap (JavaScript) -->
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <!-- Script personnalisé pour basculer la classe "show" -->
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navbarToggler = document.querySelector('.navbar-toggler');

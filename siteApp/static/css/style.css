@@ -216,15 +216,14 @@ h6,
 
 /*** Section Title ***/
 .section-title::before {
+    position: absolute;
     content: "";
     width: 150px;
     height: 5px;
     left: 0;
     bottom: 0;
-    background: #1a0675;;
+    background: #FFFFFF;
     border-radius: 2px;
-    align-self: center;
-    align-items: center;
 }
 
 .section-title.text-center::before {
@@ -243,8 +242,7 @@ h6,
     width: 6px;
     height: 5px;
     bottom: 0px;
-    background: #1a0675;;
-    
+    background: #1a0675;
     -webkit-animation: section-title-run 5s infinite linear;
     animation: section-title-run 5s infinite linear;
 }
