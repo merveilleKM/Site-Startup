@@ -13,11 +13,6 @@ def apropos(request):
 def service(request):
     return render(request, 'service.html')
 
-from django.shortcuts import render
-from django.core.mail import send_mail
-from .models import ContactMessage
-from django.contrib import messages
-
 def contact(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -54,21 +49,6 @@ def contact(request):
             # Afficher un message d'erreur si l'envoi d'email échoue
             messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
 
-        # return render(request, 'contact.html')
-        #     send_mail(
-        #         subject="Votre message a été reçu !",
-        #         message=f"Merci pour votre message, nous vous répondrons dans les plus brefs délais.\n \n \n"
-        #         f"Contenu du message : {message_content}",
-        #         from_email=None,  # Utilise DEFAULT_FROM_EMAIL
-        #         recipient_list=[email],
-        #         fail_silently=False,
-        #     )
-        #     messages.success(request, "Votre message a été envoyé et enregistré avec succès.")
-        # except Exception as e:
-        #     messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
-
-        return render(request, 'contact.html')
-
     return render(request, 'contact.html')
 
 def stage(request):
@@ -91,6 +71,26 @@ def stage(request):
         )
         postulation.save()
 
+        # Envoyer un email
+        try:
+            # Envoyer un email de confirmation à l'utilisateur
+            send_mail(
+                subject="Confirmation de réception de votre demande de stage",
+                message=f"Bonjour {name},\n\n"
+                        "Merci de nous avoir contactés ! Nous avons bien reçu votre message et vous "
+                        "répondrons dans les plus brefs délais.\n\n"
+                        "Cordialement,\nL'équipe TrueSite Technology",
+                from_email=None,  # Utilise DEFAULT_FROM_EMAIL dans settings.py
+                recipient_list=[email],
+                fail_silently=False,
+            )
+
+            # Afficher un message de succès
+            messages.success(request, "Votre message a été envoyé avec succès. Un email de confirmation vous a été envoyé.")
+        except Exception as e:
+            # Afficher un message d'erreur si l'envoi d'email échoue
+            messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
+
         messages.success(request, "Votre candidature a été soumise avec succès.")
         return redirect('stage')  # Redirige après soumission
     return render(request, 'stage.html')
@@ -101,7 +101,6 @@ def formation(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         cv = request.FILES.get('cv')
-        certificat = request.FILES.get('certificat')
         message = request.POST.get('message')
 
         # Enregistrement dans la base de données
@@ -110,13 +109,31 @@ def formation(request):
             email=email,
             phone=phone,
             cv=cv,
-            certificat=certificat,
             message=message
         )
         postulation.save()
 
-        messages.success(request, "Votre candidature a été soumise avec succès.")
-        return redirect('formation')  # Redirige après soumission
+        # Envoyer un email
+        try:
+            # Envoyer un email de confirmation à l'utilisateur
+            send_mail(
+                subject="Confirmation de réception de votre demande de formation",
+                message=f"Bonjour {name},\n\n"
+                        "Merci de vous etre inscrit a notre formation, nous reviendrons vers vous\n "
+                        "avec les prochaines etapes"
+                        "répondrons dans les plus brefs délais.\n\n"
+                        "Cordialement,\nL'équipe TrueSite Technology",
+                from_email=None,  # Utilise DEFAULT_FROM_EMAIL dans settings.py
+                recipient_list=[email],
+                fail_silently=False,
+            )
+
+            # Afficher un message de succès
+            messages.success(request, "Votre message a été envoyé avec succès. Un email de confirmation vous a été envoyé.")
+        except Exception as e:
+            # Afficher un message d'erreur si l'envoi d'email échoue
+            messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
+            
     return render(request, 'formation.html')
 
 def actualite(request):

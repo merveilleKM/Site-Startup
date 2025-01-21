@@ -3,6 +3,33 @@
 
 {% block cother %}
 
+<style>
+    .message-box {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .message-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    .message-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+    .message-box button {
+        background: none;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+
  <!-- Hero Section -->
  <section class="bg-light p-5 my-5">
     <div class="container text-center">
@@ -31,6 +58,16 @@
 
         <!-- Formulaire de Postulation -->
         <div class="col-lg-6">
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            <div class="message-box {% if message.tags == 'success' %}message-success{% elif message.tags == 'error' %}message-error{% endif %}">
+                <span>{{ message }}</span>
+                <button onclick="this.parentElement.remove()">OK</button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
             <h2>Postuler Maintenant</h2>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -49,10 +86,6 @@
                 <div class="mb-3">
                     <label for="cv" class="form-label">CV</label>
                     <input type="file" class="form-control" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
-                </div>
-                <div class="mb-3">
-                    <label for="certificat" class="form-label">Certificat de Scolarité</label>
-                    <input type="file" class="form-control" id="certificat" name="certificat" accept=".pdf,.doc,.docx" required>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Message</label>
