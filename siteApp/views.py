@@ -91,8 +91,6 @@ def stage(request):
             # Afficher un message d'erreur si l'envoi d'email échoue
             messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
 
-        messages.success(request, "Votre candidature a été soumise avec succès.")
-        return redirect('stage')  # Redirige après soumission
     return render(request, 'stage.html')
 
 def formation(request):
@@ -133,7 +131,7 @@ def formation(request):
         except Exception as e:
             # Afficher un message d'erreur si l'envoi d'email échoue
             messages.error(request, f"Une erreur est survenue lors de l'envoi du message : {str(e)}")
-            
+
     return render(request, 'formation.html')
 
 def actualite(request):
